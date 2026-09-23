@@ -1,0 +1,29 @@
+import { motion } from "framer-motion";
+import { skills } from "../data";
+import SectionHeader from "./SectionHeader";
+
+export default function Skills() {
+  return (
+    <section id="skills" className="relative py-24 px-6">
+      <div className="max-w-3xl mx-auto">
+        <SectionHeader eyebrow="Toolkit" title="Skills" />
+
+        <div className="flex flex-wrap justify-center gap-3 mt-12">
+          {skills.map((skill, i) => (
+            <motion.span
+              key={skill}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: i * 0.04 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              className="px-4 py-2 rounded-xl text-sm font-medium bg-white/[0.03] border border-white/10 text-neutral-300 hover:text-white hover:border-primary-500/40 hover:bg-primary-500/10 transition-all duration-300 cursor-default"
+            >
+              {skill}
+            </motion.span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
