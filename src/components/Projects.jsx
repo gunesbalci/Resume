@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
-import { MessageCircle, Sparkles, BarChart3, Bot, ArrowUpRight, ExternalLink } from "lucide-react";
+import { CarFront, MousePointerClick, Swords, Map, ArrowUpRight, ExternalLink } from "lucide-react";
 import { GithubIcon as Github } from "./BrandIcons";
 import { projects } from "../data";
 import SectionHeader from "./SectionHeader";
 
 const iconMap = {
-  "message-circle": MessageCircle,
-  sparkles: Sparkles,
-  "bar-chart": BarChart3,
-  bot: Bot,
+  "carfront": CarFront,
+  "mousepointer": MousePointerClick,
+  "swords": Swords,
+  "map": Map,
 };
 
 export default function Projects() {
@@ -55,7 +55,6 @@ export default function Projects() {
 
                 <h3 className="text-xl font-semibold text-white mb-2 flex items-center gap-1.5">
                   {project.title}
-                  <ArrowUpRight size={16} className="text-neutral-600 group-hover:text-primary-400 transition-colors" />
                 </h3>
                 <p className="text-sm text-neutral-400 leading-relaxed mb-4">{project.description}</p>
 

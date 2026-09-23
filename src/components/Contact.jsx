@@ -24,8 +24,8 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-neutral-400 leading-relaxed mt-8 mb-8"
         >
-          Want to chat? Just shoot me a DM with a direct question on Twitter and I'll
-          respond whenever I can. I will ignore all soliciting.
+          Don't hesitate contacting. For any questions or anything just mail me! 
+          I will respond back as soon as i see your mail. ^^
         </motion.p>
 
         <motion.a
@@ -50,19 +50,22 @@ export default function Contact() {
           className="flex items-center justify-center gap-4 mt-10"
         >
           {profile.socials.map((s) => {
-            const Icon = iconMap[s.icon] || Mail;
-            return (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:border-primary-500/50 hover:bg-primary-500/10 transition-all duration-300"
-                aria-label={s.label}
-              >
-                <Icon size={18} />
-              </a>
-            );
+            if( s.label == "Email")
+            {
+              const Icon = iconMap[s.icon] || Mail;
+              return (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-11 h-11 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-neutral-400 hover:text-white hover:border-primary-500/50 hover:bg-primary-500/10 transition-all duration-300"
+                  aria-label={s.label}
+                >
+                  <Icon size={18} />
+                </a>
+              );
+            }
           })}
         </motion.div>
       </div>
