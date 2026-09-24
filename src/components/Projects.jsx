@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { CarFront, MousePointerClick, Swords, Map, ArrowUpRight, ExternalLink } from "lucide-react";
 import { GithubIcon as Github } from "./BrandIcons";
-import { projects } from "../data";
 import SectionHeader from "./SectionHeader";
+import { useLanguage } from '../context/LanguageContext';
 
 const iconMap = {
   "carfront": CarFront,
@@ -12,13 +12,14 @@ const iconMap = {
 };
 
 export default function Projects() {
+  const { t } = useLanguage();
   return (
     <section id="projects" className="relative py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <SectionHeader eyebrow="Portfolio" title="My Projects" subtitle="Check out my latest work" />
+        <SectionHeader eyebrow="Portfolio" title="My Projects" eyebrow_tr="Portfolyo" title_tr="Projelerim"/>
 
         <div className="grid md:grid-cols-2 gap-5 mt-12">
-          {projects.map((project, i) => {
+          {t.projects.map((project, i) => {
             const Icon = iconMap[project.icon] || Sparkles;
             return (
               <motion.div

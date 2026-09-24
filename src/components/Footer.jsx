@@ -8,7 +8,6 @@ export default function Footer() {
           © {new Date().getFullYear()} {profile.name}. All rights reserved.
         </p>
         <p className="text-sm text-neutral-600">
-          Built with React & Tailwind CSS
         </p>
       </div>
     </footer>

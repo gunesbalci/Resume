@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Mail } from "lucide-react";
 import { TwitterIcon as Twitter, GithubIcon as Github, LinkedinIcon as Linkedin } from "./BrandIcons";
-import { profile } from "../data";
+import { useLanguage } from '../context/LanguageContext';
 
 const iconMap = {
   twitter: Twitter,
@@ -11,6 +11,7 @@ const iconMap = {
 };
 
 export default function Hero() {
+  const { t } = useLanguage();
   return (
     <section id="about" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Grid background */}
@@ -49,7 +50,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4"
         >
-          Hi, I'm <span className="shimmer-text">{profile.name}</span>
+          {t.profile.introduction} <span className="shimmer-text">{t.profile.name}</span>
         </motion.h1>
 
         <motion.p
@@ -58,7 +59,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-xl sm:text-2xl text-neutral-400 font-medium mb-6"
         >
-          {profile.tagline}
+          {t.profile.tagline}
         </motion.p>
 
         <motion.p
@@ -67,7 +68,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="text-neutral-400 leading-relaxed max-w-2xl mx-auto mb-10"
         >
-          {profile.about}
+          {t.profile.about}
         </motion.p>
 
         <motion.div
@@ -76,7 +77,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex items-center justify-center gap-4"
         >
-          {profile.socials.map((s) => {
+          {t.profile.socials.map((s) => {
             const Icon = iconMap[s.icon] || Mail;
             return (
               <a

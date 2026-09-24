@@ -1,19 +1,20 @@
 import { motion } from "framer-motion";
 import { Building2, Calendar } from "lucide-react";
-import { workExperience } from "../data";
 import SectionHeader from "./SectionHeader";
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Experience() {
+  const { t } = useLanguage();
   return (
     <section id="experience" className="relative py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <SectionHeader eyebrow="Career" title="Work Experience" />
+        <SectionHeader eyebrow="Career" title="Work Experience" eyebrow_tr="Kariyer" title_tr="İş Deneyimi"/>
 
         <div className="relative mt-12">
           {/* Timeline line */}
           <div className="absolute left-0 top-2 bottom-2 w-px bg-gradient-to-b from-primary-500/60 via-white/10 to-transparent" />
 
-          {workExperience.map((job, i) => (
+          {t.workExperience.map((job, i) => (
             <motion.div
               key={job.company}
               initial={{ opacity: 0, x: -20 }}

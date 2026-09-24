@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import { GraduationCap, Calendar, ExternalLink } from "lucide-react";
-import { education } from "../data";
 import SectionHeader from "./SectionHeader";
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Education() {
+  const { t } = useLanguage();
   return (
     <section id="education" className="relative py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <SectionHeader eyebrow="Academic" title="Education" />
+        <SectionHeader eyebrow="Academic" title="Education" eyebrow_tr="Akademik" title_tr="Eğitim"/>
 
         <div className="grid sm:grid-cols-2 gap-4 mt-12">
-          {education.map((edu, i) => (
+          {t.education.map((edu, i) => (
             <motion.a
               key={edu.institution}
               href={edu.href}

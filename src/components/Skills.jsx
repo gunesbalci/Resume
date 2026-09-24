@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
-import { skills } from "../data";
 import SectionHeader from "./SectionHeader";
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Skills() {
+  const { t } = useLanguage();
   return (
     <section id="skills" className="relative py-24 px-6">
       <div className="max-w-3xl mx-auto">
-        <SectionHeader eyebrow="Toolkit" title="Skills" />
+        <SectionHeader eyebrow="Toolkit" title="Skills" eyebrow_tr="Araçlar" title_tr="Yetenekler"/>
 
         <div className="flex flex-wrap justify-center gap-3 mt-12">
-          {skills.map((skill, i) => (
+          {t.skills.map((skill, i) => (
             <motion.span
               key={skill}
               initial={{ opacity: 0, scale: 0.8 }}

@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { navItems, profile } from "../data";
 import { cn } from "../lib/utils";
+import { useLanguage } from '../context/LanguageContext';
 
 export default function Navbar() {
+  const { lang, toggleLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -59,13 +61,22 @@ export default function Navbar() {
           ))}
         </div>
 
-        <button
-          className="md:hidden text-neutral-300 p-2"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex items-center gap-3">
+          <button 
+            onClick={toggleLanguage}
+            className="px-3 py-1.5 text-xs font-semibold rounded-full border border-primary-500/30 text-primary-400 hover:bg-primary-500/10 transition-all flex items-center gap-1.5"
+          >
+            {lang === 'en' ? '🇹🇷 TR' : '🇬🇧 EN'}
+          </button>
+
+          <button
+            className="md:hidden text-neutral-300 p-2 rounded-lg hover:bg-white/5 transition"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {open && (
