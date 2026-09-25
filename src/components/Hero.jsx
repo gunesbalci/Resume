@@ -14,24 +14,6 @@ export default function Hero() {
   const { t } = useLanguage();
   return (
     <section id="about" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Grid background */}
-      <div className="absolute inset-0 grid-bg mask-radial" />
-
-      {/* Meteors */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {Array.from({ length: 12 }).map((_, i) => (
-          <span
-            key={i}
-            className="absolute top-0 left-1/2 w-0.5 h-0.5 bg-white rounded-full animate-meteor"
-            style={{
-              animationDelay: `${i * 0.8}s`,
-              animationDuration: `${4 + (i % 5)}s`,
-              boxShadow: "0 0 6px 1px rgba(255,255,255,0.4)",
-            }}
-          />
-        ))}
-      </div>
-
       <div className="relative z-10 max-w-3xl mx-auto px-6 text-center pt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
